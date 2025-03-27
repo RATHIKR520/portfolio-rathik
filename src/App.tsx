@@ -11,7 +11,7 @@ import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Add smooth scroll behavior for anchor links
+  // Add smooth scroll behavior for anchor links - this is correctly inside the component
   useEffect(() => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -55,7 +55,7 @@ const App = () => {
         observer.unobserve(section);
       });
     };
-  }, []);
+  }, []); // This useEffect was previously in the wrong place
   
   return (
     <QueryClientProvider client={queryClient}>
