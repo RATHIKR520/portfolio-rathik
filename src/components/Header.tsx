@@ -1,0 +1,93 @@
+
+import React, { useState, useEffect } from 'react';
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+
+interface NavItem {
+  title: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { title: "About", href: "#about" },
+  { title: "Experience", href: "#experience" },
+  { title: "Skills", href: "#skills" },
+  { title: "Education", href: "#education" },
+  { title: "Projects", href: "#projects" },
+  { title: "Contact", href: "#contact" }
+];
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12",
+      isScrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
+    )}>
+      <div className="container mx-auto flex items-center justify-between">
+        <a 
+          href="#" 
+          className="text-2xl font-display font-bold tracking-tighter"
+        >
+          My Portfolio
+        </a>
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-10">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="font-medium text-sm hover:text-primary transition-colors relative group"
+            >
+              {item.title}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
+        </nav>
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-foreground focus:outline-none"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+      
+      {/* Mobile Menu */}
+      <div className={cn(
+        "fixed inset-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md transition-all duration-300 ease-in-out",
+        mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+      )}>
+        <div className="container mx-auto flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center space-y-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="font-display text-2xl font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
