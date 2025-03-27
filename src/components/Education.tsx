@@ -1,6 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface EducationItem {
   institution: string;
