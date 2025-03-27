@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -29,8 +30,14 @@ const About = () => {
     <section id="about" ref={sectionRef} className="py-20 px-6 bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900 section-animate">
       <div className="container max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/2">
-            <div className="glass-card rounded-2xl overflow-hidden p-10 aspect-square flex items-center justify-center">
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            <div className="mb-6 transform hover:scale-105 transition-transform duration-300">
+              <Avatar className="h-60 w-60 rounded-full border-4 border-white shadow-xl">
+                <AvatarImage src="/lovable-uploads/20d0d214-c8bf-43d1-a739-8efa0ed66e1c.png" alt="Profile Photo" className="object-cover" />
+                <AvatarFallback className="text-5xl">QA</AvatarFallback>
+              </Avatar>
+            </div>
+            <div className="glass-card rounded-2xl overflow-hidden p-8 aspect-square hidden md:flex items-center justify-center mt-6">
               <div className="text-8xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 animate-float">
                 QA
               </div>

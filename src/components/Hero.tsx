@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,11 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 section-animate">
       <div className="container max-w-5xl mx-auto text-center">
-        <div className="inline-block mb-4 animate-fade-in">
+        <div className="flex flex-col items-center mb-8 animate-fade-in">
+          <Avatar className="h-28 w-28 rounded-full border-4 border-white shadow-lg mb-4">
+            <AvatarImage src="/lovable-uploads/20d0d214-c8bf-43d1-a739-8efa0ed66e1c.png" alt="Profile Photo" className="object-cover" />
+            <AvatarFallback className="text-3xl">QA</AvatarFallback>
+          </Avatar>
           <span className="chip bg-blue-50 text-blue-700 border border-blue-200">
             Automation Test Engineer
           </span>

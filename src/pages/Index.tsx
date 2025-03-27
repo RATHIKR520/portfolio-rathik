@@ -38,6 +38,10 @@ const Index = () => {
     // Trigger once on load
     handleScroll();
     
+    // Preload profile image
+    const preloadImage = new Image();
+    preloadImage.src = '/lovable-uploads/20d0d214-c8bf-43d1-a739-8efa0ed66e1c.png';
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
