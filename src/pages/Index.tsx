@@ -40,7 +40,7 @@ const Index = () => {
     
     // Preload profile image
     const preloadImage = new Image();
-    preloadImage.src = '/lovable-uploads/20d0d214-c8bf-43d1-a739-8efa0ed66e1c.png';
+    preloadImage.src = '/lovable-uploads/42f4b75c-f015-4874-9778-49d5dbe2203b.png';
     
     return () => {
       window.removeEventListener('scroll', handleScroll);

@@ -33,7 +33,7 @@ const About = () => {
           <div className="w-full md:w-1/2 flex flex-col items-center">
             <div className="mb-6 transform hover:scale-105 transition-transform duration-300">
               <Avatar className="h-60 w-60 rounded-full border-4 border-white shadow-xl">
-                <AvatarImage src="/lovable-uploads/20d0d214-c8bf-43d1-a739-8efa0ed66e1c.png" alt="Profile Photo" className="object-cover" />
+                <AvatarImage src="/lovable-uploads/42f4b75c-f015-4874-9778-49d5dbe2203b.png" alt="Profile Photo" className="object-cover" />
                 <AvatarFallback className="text-5xl">QA</AvatarFallback>
               </Avatar>
             </div>
