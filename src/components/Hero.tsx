@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ArrowDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
@@ -64,13 +63,6 @@ const Hero = () => {
             Contact Me
           </a>
         </div>
-      </div>
-      
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
-        <a href="#about" className="flex flex-col items-center justify-center text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <span className="mb-2">Scroll Down</span>
-          <ArrowDown size={16} className="animate-bounce" />
-        </a>
       </div>
     </section>
   );
