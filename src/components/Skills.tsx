@@ -118,7 +118,10 @@ const Skills = () => {
                       </div>
                       <Progress 
                         id={`skill-${skillIndex}`}
-                        className={cn("skill-progress h-2 bg-gray-200 dark:bg-gray-700")}
+                        className={cn(
+                          "skill-progress h-1.5 bg-gray-100 dark:bg-gray-800",
+                          "rounded-full overflow-hidden"
+                        )}
                         value={animatedSkills[`skill-${skillIndex}`] ? skill.level : 0} 
                         style={{transition: 'value 1s ease-out'}}
                       />
