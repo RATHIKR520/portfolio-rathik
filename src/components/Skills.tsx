@@ -115,7 +115,6 @@ const Skills = () => {
                     <div key={skill.name} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="font-medium">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{animatedSkills[`skill-${skillIndex}`] ? skill.level : 0}%</span>
                       </div>
                       <Progress 
                         id={`skill-${skillIndex}`}
