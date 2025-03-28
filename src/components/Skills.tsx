@@ -1,54 +1,79 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
+import { Code, Database, Terminal, Code2, Laptop, CpuIcon } from 'lucide-react';
 
 interface Skill {
   category: string;
   items: {
     name: string;
     level: number;
+    icon: React.ReactNode;
   }[];
 }
+
+const getIconForSkill = (skillName: string) => {
+  const skillNameLower = skillName.toLowerCase();
+  
+  if (skillNameLower.includes('java')) {
+    return <Terminal className="text-amber-600" size={24} />;
+  } else if (skillNameLower.includes('python')) {
+    return <Code2 className="text-blue-500" size={24} />;
+  } else if (skillNameLower.includes('c')) {
+    return <Terminal className="text-purple-600" size={24} />;
+  } else if (skillNameLower.includes('script')) {
+    return <Code className="text-green-500" size={24} />;
+  } else if (skillNameLower.includes('sql') || skillNameLower.includes('oracle') || skillNameLower.includes('database')) {
+    return <Database className="text-blue-600" size={24} />;
+  } else if (skillNameLower.includes('selenium') || skillNameLower.includes('rest') || skillNameLower.includes('uft') || skillNameLower.includes('uipath')) {
+    return <Laptop className="text-gray-600" size={24} />;
+  } else if (skillNameLower.includes('jira') || skillNameLower.includes('test') || skillNameLower.includes('alm') || skillNameLower.includes('qtest')) {
+    return <CpuIcon className="text-indigo-500" size={24} />;
+  } else if (skillNameLower.includes('maven')) {
+    return <Code className="text-red-500" size={24} />;
+  }
+  
+  return <Code className="text-gray-500" size={24} />;
+};
 
 const skills: Skill[] = [
   {
     category: "Automation Tools",
     items: [
-      { name: "Selenium WebDriver", level: 90 },
-      { name: "HP UFT", level: 75 },
-      { name: "UiPath", level: 70 },
-      { name: "Rest Assured", level: 85 },
+      { name: "Selenium WebDriver", level: 90, icon: getIconForSkill("Selenium WebDriver") },
+      { name: "HP UFT", level: 75, icon: getIconForSkill("HP UFT") },
+      { name: "UiPath", level: 70, icon: getIconForSkill("UiPath") },
+      { name: "Rest Assured", level: 85, icon: getIconForSkill("Rest Assured") },
     ]
   },
   {
     category: "Build Tools",
     items: [
-      { name: "Maven", level: 85 },
+      { name: "Maven", level: 85, icon: getIconForSkill("Maven") },
     ]
   },
   {
     category: "Scripting Languages",
     items: [
-      { name: "Java", level: 85 },
-      { name: "Python", level: 75 },
-      { name: "C", level: 70 },
-      { name: "VB Script", level: 65 },
+      { name: "Java", level: 85, icon: getIconForSkill("Java") },
+      { name: "Python", level: 75, icon: getIconForSkill("Python") },
+      { name: "C", level: 70, icon: getIconForSkill("C") },
+      { name: "VB Script", level: 65, icon: getIconForSkill("VB Script") },
     ]
   },
   {
     category: "Databases",
     items: [
-      { name: "SQL Server", level: 80 },
-      { name: "Oracle", level: 75 },
+      { name: "SQL Server", level: 80, icon: getIconForSkill("SQL Server") },
+      { name: "Oracle", level: 75, icon: getIconForSkill("Oracle") },
     ]
   },
   {
     category: "Test Management Tools",
     items: [
-      { name: "ALM", level: 85 },
-      { name: "Jira", level: 90 },
-      { name: "qTest", level: 80 },
+      { name: "ALM", level: 85, icon: getIconForSkill("ALM") },
+      { name: "Jira", level: 90, icon: getIconForSkill("Jira") },
+      { name: "qTest", level: 80, icon: getIconForSkill("qTest") },
     ]
   },
 ];
@@ -64,7 +89,7 @@ const Skills = () => {
           entry.target.classList.add('animate-in');
           
           // Start animating skills
-          const skillElements = entry.target.querySelectorAll('.skill-progress');
+          const skillElements = entry.target.querySelectorAll('.skill-item');
           skillElements.forEach((skill, index) => {
             setTimeout(() => {
               setAnimatedSkills(prev => ({
@@ -112,19 +137,22 @@ const Skills = () => {
                 {skillCategory.items.map((skill) => {
                   skillIndex++;
                   return (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium">{skill.name}</span>
+                    <div 
+                      key={skill.name} 
+                      id={`skill-${skillIndex}`}
+                      className={cn(
+                        "skill-item flex items-center space-x-3 p-2 rounded-lg",
+                        animatedSkills[`skill-${skillIndex}`] ? "opacity-100" : "opacity-0"
+                      )}
+                      style={{
+                        transition: 'opacity 0.5s ease-out', 
+                        transitionDelay: `${skillIndex * 0.1}s`
+                      }}
+                    >
+                      <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                        {skill.icon}
                       </div>
-                      <Progress 
-                        id={`skill-${skillIndex}`}
-                        className={cn(
-                          "skill-progress h-1.5 bg-gray-100 dark:bg-gray-800",
-                          "rounded-full overflow-hidden"
-                        )}
-                        value={animatedSkills[`skill-${skillIndex}`] ? skill.level : 0} 
-                        style={{transition: 'value 1s ease-out'}}
-                      />
+                      <span className="font-medium">{skill.name}</span>
                     </div>
                   );
                 })}
