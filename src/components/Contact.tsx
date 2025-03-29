@@ -42,84 +42,84 @@ const Contact = () => {
         <div className="glass-card rounded-2xl p-8 hover-card max-w-2xl mx-auto bg-white/80 shadow-lg">
           <div className="space-y-6">
             <div className="flex items-start">
-              <User className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <User className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Full Name</h3>
-                <p className="text-lg">Rathik Ravi Poojary</p>
+                <p className="text-lg break-words">Rathik Ravi Poojary</p>
               </div>
             </div>
             
             <div className="flex items-start">
-              <Calendar className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <Calendar className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Age & Date of Birth</h3>
-                <p className="text-lg">24 years (July 3, 2000)</p>
+                <p className="text-lg break-words">24 years (July 3, 2000)</p>
               </div>
             </div>
             
             <div className="flex items-start">
-              <MapPin className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <MapPin className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Location</h3>
-                <p className="text-lg">Bengaluru, India</p>
+                <p className="text-lg break-words">Bengaluru, India</p>
               </div>
             </div>
             
             <div className="flex items-start">
-              <Mail className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <Mail className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Email</h3>
-                <p className="text-lg">rathikpoojary9686@gmail.com</p>
+                <p className="text-lg break-words">rathikpoojary9686@gmail.com</p>
               </div>
             </div>
             
             <div className="flex items-start">
-              <Phone className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <Phone className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Phone</h3>
-                <p className="text-lg">+91 9731720990</p>
+                <p className="text-lg break-words">+91 9731720990</p>
               </div>
             </div>
             
             <div className="flex items-start">
-              <User className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <User className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">Languages Known</h3>
-                <p className="text-lg">English, Kannada, Hindi</p>
+                <p className="text-lg break-words">English, Kannada, Hindi</p>
               </div>
             </div>
 
             <div className="flex items-start">
-              <Linkedin className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <Linkedin className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">LinkedIn</h3>
-                <p className="text-lg">
+                <p className="text-lg break-words">
                   <a 
                     href="https://www.linkedin.com/in/rathik-ravi-poojary-526640190" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline flex items-center"
+                    className="text-blue-600 hover:underline flex items-center flex-wrap"
                   >
                     Rathik Ravi Poojary
-                    <ExternalLink size={14} className="ml-1" />
+                    <ExternalLink size={14} className="ml-1 flex-shrink-0" />
                   </a>
                 </p>
               </div>
             </div>
 
             <div className="flex items-start">
-              <Github className="w-5 h-5 text-blue-600 mt-1 mr-4" />
-              <div>
+              <Github className="w-5 h-5 text-blue-600 mt-1 mr-4 flex-shrink-0" />
+              <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-muted-foreground">GitHub</h3>
-                <p className="text-lg">
+                <p className="text-lg break-words">
                   <a 
                     href="https://github.com/RATHIKR520" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline flex items-center"
+                    className="text-blue-600 hover:underline flex items-center flex-wrap"
                   >
                     RATHIKR520
-                    <ExternalLink size={14} className="ml-1" />
+                    <ExternalLink size={14} className="ml-1 flex-shrink-0" />
                   </a>
                 </p>
               </div>

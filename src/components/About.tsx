@@ -39,12 +39,12 @@ const About = () => {
                   className="object-cover" 
                   objectPosition="center 20%" 
                 />
-                <AvatarFallback className="text-5xl">QA</AvatarFallback>
+                <AvatarFallback className="text-5xl">RP</AvatarFallback>
               </Avatar>
             </div>
             <div className="glass-card rounded-2xl overflow-hidden p-8 aspect-square hidden md:flex items-center justify-center mt-6">
               <div className="text-8xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 animate-float">
-                QA
+                RP
               </div>
             </div>
           </div>
