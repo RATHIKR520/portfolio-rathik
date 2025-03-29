@@ -1,6 +1,5 @@
 {
   "name": "vite_react_shadcn_ts",
-  "homepage": "https://rathikr520.github.io/automated-journey-narrative/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,10 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview --base /automated-journey-narrative/",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "lint": "eslint ."
+    
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -62,8 +59,8 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
-    "zod": "^3.23.8",
-    "gh-pages": "^6.1.0"
+    "zod": "^3.23.8"
+   
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
