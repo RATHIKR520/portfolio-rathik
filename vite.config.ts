@@ -19,5 +19,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  //base:"/automated-journey-narrative",
+  base:"/automated-journey-narrative",
 }));
