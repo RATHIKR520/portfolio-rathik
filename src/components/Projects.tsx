@@ -1,7 +1,9 @@
 
-import React, { useEffect, useRef } from 'react';
-import { Layers, Calendar, ExternalLink } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Layers, Calendar, ExternalLink, Award, Github } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 interface Project {
   title: string;
@@ -9,6 +11,9 @@ interface Project {
   description: string;
   techStack: string[];
   link?: string;
+  github?: string;
+  certificate?: string;
+  isPersonal?: boolean;
 }
 
 const projectsData: Project[] = [
@@ -22,13 +27,19 @@ const projectsData: Project[] = [
     title: "Smart Home Products and Automation Biometric Door lock system using IOT",
     period: "November 2019 - May 2020",
     description: "Storing biometric data of employees in the fingerprint module with respective names mapped in the code. Implementation triggered biometric alerts to administrator through SMS whenever the system was accessed.",
-    techStack: ["Arduino", "GSM Module", "Relay", "Solenoid lock", "Fingerprint sensor(R305)", "Arduino IDE"]
+    techStack: ["Arduino", "GSM Module", "Relay", "Solenoid lock", "Fingerprint sensor(R305)", "Arduino IDE"],
+    certificate: "/lovable-uploads/5a37f7bd-4271-4ea7-968c-16ebcc990261.png",
+    github: "https://github.com/yourusername/smart-home-biometric",
+    isPersonal: true
   },
   {
     title: "Development of Job Portal Website",
     period: "February 2021 - May 2021",
     description: "Contributed to the UI development of a job portal application where users can seek or create job listings.",
-    techStack: ["Python", "HTML", "CSS"]
+    techStack: ["Python", "HTML", "CSS"],
+    certificate: "/lovable-uploads/b0da0aa6-4b69-4081-8f8d-320516fecbd0.png",
+    github: "https://github.com/yourusername/job-portal",
+    isPersonal: true
   }
 ];
 
@@ -68,7 +79,7 @@ const Projects = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Project Experience</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my professional and academic projects.
+            A showcase of my professional and personal projects.
           </p>
         </div>
 
@@ -79,15 +90,45 @@ const Projects = () => {
               <div className="p-6 flex-grow">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-bold text-lg">{project.title}</h3>
-                  {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 transition-colors">
-                      <ExternalLink size={18} />
-                    </a>
-                  )}
+                  <div className="flex items-center space-x-2">
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 transition-colors">
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-black transition-colors">
+                        <Github size={18} />
+                      </a>
+                    )}
+                    {project.certificate && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant="ghost" className="p-0 h-auto" aria-label="View Certificate">
+                            <Award size={18} className="text-amber-500" />
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-3xl">
+                          <img 
+                            src={project.certificate} 
+                            alt={`Certificate for ${project.title}`} 
+                            className="w-full h-auto" 
+                          />
+                        </DialogContent>
+                      </Dialog>
+                    )}
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground mb-4 flex items-center">
-                  <Calendar size={14} className="mr-1" />
-                  <span>{project.period}</span>
+                <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2">
+                  <div className="flex items-center">
+                    <Calendar size={14} className="mr-1" />
+                    <span>{project.period}</span>
+                  </div>
+                  {project.isPersonal && (
+                    <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
+                      Personal Project
+                    </Badge>
+                  )}
                 </div>
                 <p className="text-muted-foreground mb-6">{project.description}</p>
                 <div className="mt-auto">

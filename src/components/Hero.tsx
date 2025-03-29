@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Github } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -61,6 +62,15 @@ const Hero = () => {
             className="glass-card px-6 py-3 rounded-full font-medium inline-flex items-center justify-center border border-primary/20 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 transform hover:-translate-y-1"
           >
             Contact Me
+          </a>
+          <a 
+            href="https://github.com/yourusername" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-card px-6 py-3 rounded-full font-medium inline-flex items-center justify-center border border-primary/20 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Github size={18} className="mr-2" />
+            GitHub
           </a>
         </div>
       </div>
