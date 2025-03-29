@@ -31,19 +31,19 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" ref={sectionRef} className="py-20 px-6 section-animate">
+    <section id="experience" ref={sectionRef} className="py-32 px-6 section-animate bg-[#F8F8F8]">
       <div className="container max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="mb-2">
             <span className="chip">Work Experience</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Professional Journey</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">Professional Journey</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Over 2.5 years of industry experience working with cutting-edge testing technologies and methodologies.
           </p>
         </div>
 
-        <div className="glass-card rounded-2xl p-8 mb-8 hover-card stagger-animate">
+        <div className="glass-card rounded-2xl p-8 mb-8 hover-card stagger-animate bg-white/80 shadow-lg">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
               <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center stagger-item">
@@ -92,24 +92,24 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl p-8 mb-12 hover-card">
+        <div className="glass-card rounded-2xl p-8 mb-12 hover-card bg-white/80 shadow-lg">
           <div className="flex items-center mb-6">
             <Award className="w-6 h-6 text-amber-500 mr-3" />
             <h3 className="text-xl font-bold">Achievements</h3>
           </div>
-          <div className="glass-container rounded-xl p-6">
+          <div className="glass-container rounded-xl p-6 bg-gradient-to-r from-amber-50 to-amber-100">
             <p className="text-lg">
               Was part of the team which was awarded the <span className="font-semibold">'Best Team'</span> for outstanding contribution to the client.
             </p>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl p-8 hover-card">
+        <div className="glass-card rounded-2xl p-8 hover-card bg-white/80 shadow-lg">
           <div className="flex items-center mb-6">
             <Award className="w-6 h-6 text-blue-500 mr-3" />
             <h3 className="text-xl font-bold">Certifications</h3>
           </div>
-          <div className="glass-container rounded-xl p-6">
+          <div className="glass-container rounded-xl p-6 bg-gradient-to-r from-blue-50 to-blue-100">
             <p className="text-lg">
               Accenture certified Selenium and UFT Test Engineer
             </p>

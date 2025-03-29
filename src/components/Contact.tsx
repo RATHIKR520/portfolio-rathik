@@ -27,19 +27,19 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 px-6 section-animate">
+    <section id="contact" ref={sectionRef} className="py-20 px-6 section-animate bg-[#F1F1F1]">
       <div className="container max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="mb-2">
             <span className="chip">Contact</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Personal Information</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">Personal Information</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Feel free to reach out to me for any inquiries or opportunities.
           </p>
         </div>
 
-        <div className="glass-card rounded-2xl p-8 hover-card max-w-2xl mx-auto">
+        <div className="glass-card rounded-2xl p-8 hover-card max-w-2xl mx-auto bg-white/80 shadow-lg">
           <div className="space-y-6">
             <div className="flex items-start">
               <User className="w-5 h-5 text-blue-600 mt-1 mr-4" />
