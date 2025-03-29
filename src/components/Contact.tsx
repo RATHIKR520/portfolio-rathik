@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Calendar, User } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, User, Github, Linkedin, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,7 +45,7 @@ const Contact = () => {
               <User className="w-5 h-5 text-blue-600 mt-1 mr-4" />
               <div>
                 <h3 className="font-medium text-muted-foreground">Full Name</h3>
-                <p className="text-lg">QA Automation Engineer</p>
+                <p className="text-lg">Rathik Ravi Poojary</p>
               </div>
             </div>
             
@@ -61,7 +61,7 @@ const Contact = () => {
               <MapPin className="w-5 h-5 text-blue-600 mt-1 mr-4" />
               <div>
                 <h3 className="font-medium text-muted-foreground">Location</h3>
-                <p className="text-lg">Karnataka, India</p>
+                <p className="text-lg">Bengaluru, India</p>
               </div>
             </div>
             
@@ -69,7 +69,7 @@ const Contact = () => {
               <Mail className="w-5 h-5 text-blue-600 mt-1 mr-4" />
               <div>
                 <h3 className="font-medium text-muted-foreground">Email</h3>
-                <p className="text-lg">contact@example.com</p>
+                <p className="text-lg">rathikpoojary9686@gmail.com</p>
               </div>
             </div>
             
@@ -77,7 +77,7 @@ const Contact = () => {
               <Phone className="w-5 h-5 text-blue-600 mt-1 mr-4" />
               <div>
                 <h3 className="font-medium text-muted-foreground">Phone</h3>
-                <p className="text-lg">+91 XXXXX XXXXX</p>
+                <p className="text-lg">+91 9731720990</p>
               </div>
             </div>
             
@@ -86,6 +86,42 @@ const Contact = () => {
               <div>
                 <h3 className="font-medium text-muted-foreground">Languages Known</h3>
                 <p className="text-lg">English, Kannada, Hindi</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <Linkedin className="w-5 h-5 text-blue-600 mt-1 mr-4" />
+              <div>
+                <h3 className="font-medium text-muted-foreground">LinkedIn</h3>
+                <p className="text-lg">
+                  <a 
+                    href="https://www.linkedin.com/in/rathik-ravi-poojary-526640190" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center"
+                  >
+                    Rathik Ravi Poojary
+                    <ExternalLink size={14} className="ml-1" />
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <Github className="w-5 h-5 text-blue-600 mt-1 mr-4" />
+              <div>
+                <h3 className="font-medium text-muted-foreground">GitHub</h3>
+                <p className="text-lg">
+                  <a 
+                    href="https://github.com/RATHIKR520" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center"
+                  >
+                    RATHIKR520
+                    <ExternalLink size={14} className="ml-1" />
+                  </a>
+                </p>
               </div>
             </div>
           </div>

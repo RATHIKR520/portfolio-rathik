@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Github } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ const Hero = () => {
               className="object-cover" 
               objectPosition="center top" 
             />
-            <AvatarFallback className="text-3xl">QA</AvatarFallback>
+            <AvatarFallback className="text-3xl">RP</AvatarFallback>
           </Avatar>
           <span className="chip bg-blue-50 text-blue-700 border border-blue-200">
             Automation Test Engineer
@@ -64,13 +64,22 @@ const Hero = () => {
             Contact Me
           </a>
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/RATHIKR520" 
             target="_blank"
             rel="noopener noreferrer"
             className="glass-card px-6 py-3 rounded-full font-medium inline-flex items-center justify-center border border-primary/20 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 transform hover:-translate-y-1"
           >
             <Github size={18} className="mr-2" />
             GitHub
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/rathik-ravi-poojary-526640190" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-card px-6 py-3 rounded-full font-medium inline-flex items-center justify-center border border-primary/20 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Linkedin size={18} className="mr-2" />
+            LinkedIn
           </a>
         </div>
       </div>
