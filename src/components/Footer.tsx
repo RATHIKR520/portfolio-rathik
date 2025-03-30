@@ -2,9 +2,13 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  id?: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ id }) => {
   return (
-    <footer className="py-12 px-6 bg-gray-50 dark:bg-gray-900">
+    <footer id={id} className="py-12 px-6 bg-gray-50 dark:bg-gray-900">
       <div className="container max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0">
