@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     description: "Storing biometric data of employees in the fingerprint module with respective names mapped in the code. Implementation triggered biometric alerts to administrator through SMS whenever the system was accessed.",
     techStack: ["Arduino", "GSM Module", "Relay", "Solenoid lock", "Fingerprint sensor(R305)", "Arduino IDE"],
     certificate: "/lovable-uploads/5a37f7bd-4271-4ea7-968c-16ebcc990261.png",
-    github: "https://github.com/yourusername/smart-home-biometric",
+    github: "https://github.com/RATHIKR520/-Smart-Home-Products-and-Automation-Biometric-Door-lock-system-using-IOT",
     isPersonal: true
   },
   {
