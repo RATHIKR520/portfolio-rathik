@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Sparkles, Star } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
@@ -30,12 +30,55 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 section-animate bg-[#F1F1F1] pt-20">
+    <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 section-animate bg-[#F1F1F1] pt-20 relative overflow-hidden">
+      {/* Animated SVG elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Star 
+          className="absolute text-blue-400/30 animate-float" 
+          style={{
+            top: '10%',
+            left: '10%',
+            animationDelay: '0s',
+            transform: 'rotate(-10deg)',
+          }}
+          size={isMobile ? 28 : 40}
+        />
+        <Star 
+          className="absolute text-blue-500/40 animate-float" 
+          style={{
+            top: '15%',
+            right: '15%',
+            animationDelay: '1.5s',
+            transform: 'rotate(15deg)',
+          }}
+          size={isMobile ? 20 : 32}
+        />
+        <Sparkles 
+          className="absolute text-blue-600/30 animate-float" 
+          style={{
+            bottom: '20%',
+            left: '20%',
+            animationDelay: '2s',
+          }}
+          size={isMobile ? 24 : 36}
+        />
+        <Sparkles 
+          className="absolute text-blue-400/40 animate-float" 
+          style={{
+            bottom: '12%',
+            right: '12%',
+            animationDelay: '3.5s',
+          }}
+          size={isMobile ? 32 : 48}
+        />
+      </div>
+      
       <div className="container max-w-5xl mx-auto text-center">
         <div className="flex flex-col items-center mb-8 animate-fade-in">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full blur-md -z-10"></div>
-            <Avatar className="h-28 w-28 rounded-full border-4 border-white shadow-lg mb-4">
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-300/20 to-purple-400/20 animate-pulse"></div>
+            <Avatar className="h-28 w-28 rounded-full border-4 border-white shadow-lg mb-4 relative">
               <AvatarImage 
                 src="/lovable-uploads/42f4b75c-f015-4874-9778-49d5dbe2203b.png" 
                 alt="Profile Photo" 
@@ -44,6 +87,9 @@ const Hero = () => {
               />
               <AvatarFallback className="text-3xl">RP</AvatarFallback>
             </Avatar>
+            <div className="absolute -top-2 -right-2 text-yellow-400 animate-pulse">
+              <Sparkles size={isMobile ? 18 : 24} />
+            </div>
           </div>
           <span className="chip bg-blue-50 text-blue-700 border border-blue-200">
             Automation Test Engineer
@@ -58,9 +104,10 @@ const Hero = () => {
         <div className={`flex flex-col ${isMobile ? 'space-y-4' : 'sm:flex-row items-center justify-center gap-4'} animate-fade-up`} style={{ animationDelay: '0.4s' }}>
           <a 
             href="#experience" 
-            className="glass-container px-6 py-3 rounded-full font-medium inline-flex items-center justify-center hover:shadow-glass-lg transition-all duration-300 transform hover:-translate-y-1 bg-blue-600 text-white"
+            className="glass-container px-6 py-3 rounded-full font-medium inline-flex items-center justify-center hover:shadow-glass-lg transition-all duration-300 transform hover:-translate-y-1 bg-blue-600 text-white relative overflow-hidden group"
           >
-            View Experience
+            <span className="relative z-10">View Experience</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 group-hover:opacity-90 transition-opacity duration-300"></span>
           </a>
           <a 
             href="#contact" 

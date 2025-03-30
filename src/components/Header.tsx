@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface NavItem {
@@ -79,9 +79,15 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between">
         <a 
           href="#" 
-          className="text-2xl font-display font-bold tracking-tighter"
+          className="text-2xl font-display font-bold tracking-tighter relative group"
         >
-          My Portfolio
+          <span className="relative">My Portfolio</span>
+          {isMobile && (
+            <Sparkles 
+              size={16} 
+              className="absolute -top-1 -right-5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+          )}
         </a>
         
         {/* Desktop Navigation */}
@@ -100,13 +106,19 @@ const Header = () => {
         
         {/* Mobile Menu Button - prevent event bubbling */}
         <button 
-          className="md:hidden text-foreground focus:outline-none z-50"
+          className="md:hidden text-foreground focus:outline-none z-50 relative overflow-hidden"
           onClick={(e) => {
             e.stopPropagation();
             setMobileMenuOpen(!mobileMenuOpen);
           }}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="relative">
+            {mobileMenuOpen ? (
+              <X size={24} className="animate-scale" />
+            ) : (
+              <Menu size={24} className="transition-transform hover:scale-110 duration-200" />
+            )}
+          </div>
         </button>
       </div>
       
@@ -118,17 +130,27 @@ const Header = () => {
         )}>
           <div className="container mx-auto flex flex-col items-center pt-10">
             <div className="flex flex-col items-center space-y-8">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="font-display text-2xl font-medium hover:text-primary transition-colors"
+                  className="font-display text-2xl font-medium hover:text-primary transition-colors stagger-item"
                   onClick={() => setMobileMenuOpen(false)}
+                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
                   {item.title}
+                  <span className="block h-0.5 w-0 group-hover:w-full transition-all duration-300 bg-primary"></span>
                 </a>
               ))}
             </div>
+          </div>
+          
+          {/* Decorative elements for mobile menu */}
+          <div className="absolute bottom-10 left-8">
+            <Sparkles className="text-blue-400/60 animate-pulse" size={32} />
+          </div>
+          <div className="absolute top-32 right-8">
+            <Sparkles className="text-blue-500/40 animate-float" size={24} />
           </div>
         </div>
       )}
