@@ -53,6 +53,7 @@ const Header = () => {
   // Add/remove body class to prevent scrolling and blur content
   useEffect(() => {
     if (mobileMenuOpen) {
+      // Use direct DOM class manipulation instead of @apply
       document.body.classList.add('overflow-hidden');
       document.getElementById('root')?.classList.add('blur-sm');
     } else {
