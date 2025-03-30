@@ -55,15 +55,19 @@ const Header = () => {
     if (mobileMenuOpen) {
       // Use direct DOM class manipulation instead of @apply
       document.body.classList.add('overflow-hidden');
-      document.getElementById('root')?.classList.add('blur-sm');
+      // Only blur the main content and footer, not the mobile menu itself
+      document.getElementById('main-content')?.classList.add('blur-sm');
+      document.getElementById('footer')?.classList.add('blur-sm');
     } else {
       document.body.classList.remove('overflow-hidden');
-      document.getElementById('root')?.classList.remove('blur-sm');
+      document.getElementById('main-content')?.classList.remove('blur-sm');
+      document.getElementById('footer')?.classList.remove('blur-sm');
     }
     
     return () => {
       document.body.classList.remove('overflow-hidden');
-      document.getElementById('root')?.classList.remove('blur-sm');
+      document.getElementById('main-content')?.classList.remove('blur-sm');
+      document.getElementById('footer')?.classList.remove('blur-sm');
     };
   }, [mobileMenuOpen]);
 
@@ -106,7 +110,7 @@ const Header = () => {
         </button>
       </div>
       
-      {/* Mobile Menu */}
+      {/* Mobile Menu - No blur effect applied to this content */}
       {mobileMenuOpen && (
         <div className={cn(
           "fixed inset-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md pt-20",

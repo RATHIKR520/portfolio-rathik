@@ -52,7 +52,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col antialiased">
       <Header />
-      <main className="flex-grow" ref={mainContentRef}>
+      <main id="main-content" className="flex-grow" ref={mainContentRef}>
         <Hero />
         <About />
         <Experience />
@@ -61,8 +61,7 @@ const Index = () => {
         <Projects />
         <Contact />
       </main>
-      <Footer />
-      <ScrollObserver />
+      <Footer id="footer" />
     </div>
   );
 };
