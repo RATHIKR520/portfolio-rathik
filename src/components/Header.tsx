@@ -82,7 +82,7 @@ const Header = () => {
           className="text-2xl font-display font-bold tracking-tighter relative group"
         >
           <span className="relative">My Portfolio</span>
-          {isMobile && (
+          {!isMobile && (
             <Sparkles 
               size={16} 
               className="absolute -top-1 -right-5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -146,11 +146,11 @@ const Header = () => {
           </div>
           
           {/* Decorative elements for mobile menu */}
-          <div className="absolute bottom-10 left-8">
-            <Sparkles className="text-blue-400/60 animate-pulse" size={32} />
+          <div className="absolute bottom-10 left-8 z-50 pointer-events-none">
+            <Sparkles className="text-blue-400/90 animate-pulse" size={32} />
           </div>
-          <div className="absolute top-32 right-8">
-            <Sparkles className="text-blue-500/40 animate-float" size={24} />
+          <div className="absolute top-32 right-8 z-50 pointer-events-none">
+            <Sparkles className="text-blue-500/90 animate-float" size={24} />
           </div>
         </div>
       )}
