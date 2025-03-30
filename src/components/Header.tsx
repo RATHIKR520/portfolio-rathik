@@ -50,6 +50,22 @@ const Header = () => {
     };
   }, [mobileMenuOpen]);
 
+  // Add/remove body class to prevent scrolling and blur content
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+      document.getElementById('root')?.classList.add('blur-sm');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('root')?.classList.remove('blur-sm');
+    }
+    
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('root')?.classList.remove('blur-sm');
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12",

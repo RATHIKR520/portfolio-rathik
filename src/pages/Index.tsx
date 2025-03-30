@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -12,6 +12,8 @@ import Footer from '@/components/Footer';
 import ScrollObserver from '@/components/ScrollObserver';
 
 const Index = () => {
+  const mainContentRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('.section-animate');
@@ -50,7 +52,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col antialiased">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow" ref={mainContentRef}>
         <Hero />
         <About />
         <Experience />
