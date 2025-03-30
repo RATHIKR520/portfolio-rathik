@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -84,10 +83,9 @@ const Education = () => {
               <div key={index} className="stagger-item relative">
                 <div className="flex flex-col md:flex-row md:items-center">
                   <div className="flex md:justify-end md:w-1/2 md:pr-8">
-                    {/* Left side card - visible on desktop for odd items */}
                     <div className={cn(
                       "glass-card p-6 rounded-xl hover-card w-full ml-12 md:ml-0",
-                      { "md:block": index % 2 === 0, "md:hidden": index % 2 === 1 }
+                      index % 2 === 1 ? "md:hidden" : ""
                     )}>
                       <div className="flex items-center mb-2">
                         <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
@@ -110,10 +108,9 @@ const Education = () => {
                   <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 z-10"></div>
                   
                   <div className="md:w-1/2 md:pl-8">
-                    {/* Right side card - visible on desktop for even items */}
                     <div className={cn(
                       "glass-card p-6 rounded-xl hover-card w-full ml-12 md:ml-0",
-                      { "md:block": index % 2 === 1, "md:hidden": index % 2 === 0 }
+                      index % 2 === 0 ? "md:hidden" : ""
                     )}>
                       <div className="flex items-center mb-2">
                         <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
