@@ -253,14 +253,33 @@ body.overflow-hidden {
 @media (max-width: 768px) {
   .lucide {
     stroke-width: 2.5;
-    filter: drop-shadow(0 0 3px rgba(37, 99, 235, 0.6));
+    filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.8));
   }
   
+  /* Improve contrast for SVG text */
+  a, button, .text-foreground {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Enhance navigation items visibility */
+  .fixed .flex-col a {
+    opacity: 1 !important;
+    font-weight: 700;
+    color: #222222;
+  }
+  
+  /* Ensure SVG icons in mobile menu are visible */
   .text-blue-400\/30, 
   .text-blue-500\/40,
   .text-blue-600\/30, 
   .text-blue-400\/40 {
-    @apply text-blue-600/80;
+    @apply text-blue-700;
+    opacity: 1 !important;
+  }
+  
+  /* Ensure decorative elements are highly visible */
+  .animate-float, .animate-pulse {
+    opacity: 0.9 !important;
   }
 }
 

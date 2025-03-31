@@ -122,7 +122,7 @@ const Header = () => {
         </button>
       </div>
       
-      {/* Mobile Menu - No blur effect applied to this content */}
+      {/* Mobile Menu - Enhanced visibility for menu items */}
       {mobileMenuOpen && (
         <div className={cn(
           "fixed inset-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md pt-20",
@@ -134,9 +134,12 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="font-display text-2xl font-medium hover:text-primary transition-colors stagger-item"
+                  className="font-display text-2xl font-bold text-foreground hover:text-primary transition-colors stagger-item"
                   onClick={() => setMobileMenuOpen(false)}
-                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                  style={{ 
+                    animationDelay: `${0.1 + index * 0.1}s`,
+                    textShadow: '0 0 2px rgba(0,0,0,0.1)'
+                  }}
                 >
                   {item.title}
                   <span className="block h-0.5 w-0 group-hover:w-full transition-all duration-300 bg-primary"></span>
@@ -145,12 +148,20 @@ const Header = () => {
             </div>
           </div>
           
-          {/* Decorative elements for mobile menu */}
+          {/* Improved decorative elements for mobile menu - better visibility */}
           <div className="absolute bottom-10 left-8">
-            <Sparkles className="text-blue-400/60 animate-pulse" size={32} />
+            <Sparkles 
+              className="text-blue-600 animate-pulse" 
+              size={32}
+              strokeWidth={3}
+            />
           </div>
           <div className="absolute top-32 right-8">
-            <Sparkles className="text-blue-500/40 animate-float" size={24} />
+            <Sparkles 
+              className="text-blue-700 animate-float" 
+              size={24}
+              strokeWidth={3} 
+            />
           </div>
         </div>
       )}
