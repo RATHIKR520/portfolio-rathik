@@ -1,6 +1,8 @@
+
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface EducationItem {
   institution: string;
@@ -36,6 +38,7 @@ const educationData: EducationItem[] = [
 
 const Education = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,36 +85,37 @@ const Education = () => {
             {educationData.map((item, index) => (
               <div key={index} className="stagger-item relative">
                 <div className="flex flex-col md:flex-row md:items-center">
-                  <div className="flex md:justify-end md:w-1/2 md:pr-8">
-                    <div className={cn(
-                      "glass-card p-6 rounded-xl hover-card w-full ml-12 md:ml-0",
-                      index % 2 === 1 ? "md:hidden" : ""
-                    )}>
-                      <div className="flex items-center mb-2">
-                        <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
-                        <h3 className="font-bold">{item.institution}</h3>
+                  {/* Left side card (visible only on desktop when index is even) */}
+                  {!isMobile && index % 2 === 0 && (
+                    <div className="md:w-1/2 md:pr-8 flex md:justify-end">
+                      <div className="glass-card p-6 rounded-xl hover-card w-full">
+                        <div className="flex items-center mb-2">
+                          <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
+                          <h3 className="font-bold">{item.institution}</h3>
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-1 flex items-center">
+                          <MapPin size={14} className="mr-1" />
+                          <span>{item.location}</span>
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-3 flex items-center">
+                          <Calendar size={14} className="mr-1" />
+                          <span>{item.period}</span>
+                        </div>
+                        <p className="font-medium">{item.degree}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{item.gpa}</p>
                       </div>
-                      <div className="text-sm text-muted-foreground mb-1 flex items-center">
-                        <MapPin size={14} className="mr-1" />
-                        <span>{item.location}</span>
-                      </div>
-                      <div className="text-sm text-muted-foreground mb-3 flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        <span>{item.period}</span>
-                      </div>
-                      <p className="font-medium">{item.degree}</p>
-                      <p className="text-sm text-muted-foreground mt-1">{item.gpa}</p>
                     </div>
-                  </div>
+                  )}
                   
                   {/* Timeline circle */}
                   <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 z-10"></div>
                   
-                  <div className="md:w-1/2 md:pl-8">
-                    <div className={cn(
-                      "glass-card p-6 rounded-xl hover-card w-full ml-12 md:ml-0",
-                      index % 2 === 0 ? "md:hidden" : ""
-                    )}>
+                  {/* Mobile card OR right side card on desktop */}
+                  <div className={cn(
+                    "md:w-1/2 md:pl-8",
+                    isMobile ? "w-full ml-12" : (index % 2 === 0 ? "hidden md:block" : "")
+                  )}>
+                    <div className="glass-card p-6 rounded-xl hover-card w-full">
                       <div className="flex items-center mb-2">
                         <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
                         <h3 className="font-bold">{item.institution}</h3>

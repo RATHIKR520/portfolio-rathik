@@ -31,45 +31,53 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 section-animate bg-[#F1F1F1] pt-20 relative overflow-hidden">
-      {/* Animated SVG elements */}
+      {/* Animated SVG elements with improved visibility */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Star 
-          className="absolute text-blue-400/30 animate-float" 
+          className="absolute text-blue-600/70 animate-float" 
           style={{
             top: '10%',
             left: '10%',
             animationDelay: '0s',
             transform: 'rotate(-10deg)',
+            filter: 'drop-shadow(0 0 2px rgba(37, 99, 235, 0.5))',
           }}
-          size={isMobile ? 28 : 40}
+          size={isMobile ? 32 : 40}
+          strokeWidth={isMobile ? 2.5 : 2}
         />
         <Star 
-          className="absolute text-blue-500/40 animate-float" 
+          className="absolute text-blue-700/80 animate-float" 
           style={{
             top: '15%',
             right: '15%',
             animationDelay: '1.5s',
             transform: 'rotate(15deg)',
+            filter: 'drop-shadow(0 0 2px rgba(37, 99, 235, 0.5))',
           }}
-          size={isMobile ? 20 : 32}
+          size={isMobile ? 28 : 32}
+          strokeWidth={isMobile ? 2.5 : 2}
         />
         <Sparkles 
-          className="absolute text-blue-600/30 animate-float" 
+          className="absolute text-blue-800/70 animate-float" 
           style={{
             bottom: '20%',
             left: '20%',
             animationDelay: '2s',
+            filter: 'drop-shadow(0 0 2px rgba(37, 99, 235, 0.5))',
           }}
-          size={isMobile ? 24 : 36}
+          size={isMobile ? 32 : 36}
+          strokeWidth={isMobile ? 2.5 : 2}
         />
         <Sparkles 
-          className="absolute text-blue-400/40 animate-float" 
+          className="absolute text-blue-600/80 animate-float" 
           style={{
             bottom: '12%',
             right: '12%',
             animationDelay: '3.5s',
+            filter: 'drop-shadow(0 0 2px rgba(37, 99, 235, 0.5))',
           }}
-          size={isMobile ? 32 : 48}
+          size={isMobile ? 36 : 48}
+          strokeWidth={isMobile ? 2.5 : 2}
         />
       </div>
       
