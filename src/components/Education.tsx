@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -118,7 +119,7 @@ const Education = () => {
     );
   }
 
-  // Desktop/web view redesigned to match the image
+  // Desktop/web view with enhanced hover animations similar to Personal Information cards
   return (
     <section id="education" ref={sectionRef} className="py-20 px-6 section-animate">
       <div className="container max-w-5xl mx-auto">
@@ -147,9 +148,11 @@ const Education = () => {
                   {index % 2 === 0 ? (
                     <>
                       <div className="w-1/2 pr-12">
-                        <div className="shadow-md bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-                          <div className="flex items-center text-blue-600 mb-2">
-                            <GraduationCap className="w-5 h-5 mr-2" />
+                        <div className="glass-card rounded-2xl p-6 hover-card bg-white/80 shadow-lg border-t border-l border-white/50 hover:shadow-xl transition-all duration-300">
+                          <div className="flex items-center text-blue-600 mb-2 group">
+                            <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors">
+                              <GraduationCap className="w-5 h-5 text-blue-600" />
+                            </div>
                             <h3 className="font-bold text-gray-800">{item.institution}</h3>
                           </div>
                           <div className="text-sm text-gray-600 mb-1 flex items-center">
@@ -170,9 +173,11 @@ const Education = () => {
                     <>
                       <div className="w-1/2"></div>
                       <div className="w-1/2 pl-12">
-                        <div className="shadow-md bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-                          <div className="flex items-center text-blue-600 mb-2">
-                            <GraduationCap className="w-5 h-5 mr-2" />
+                        <div className="glass-card rounded-2xl p-6 hover-card bg-white/80 shadow-lg border-t border-l border-white/50 hover:shadow-xl transition-all duration-300">
+                          <div className="flex items-center text-blue-600 mb-2 group">
+                            <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors">
+                              <GraduationCap className="w-5 h-5 text-blue-600" />
+                            </div>
                             <h3 className="font-bold text-gray-800">{item.institution}</h3>
                           </div>
                           <div className="text-sm text-gray-600 mb-1 flex items-center">
