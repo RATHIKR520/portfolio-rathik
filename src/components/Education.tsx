@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -64,30 +63,34 @@ const Education = () => {
     };
   }, []);
 
-  return (
-    <section id="education" ref={sectionRef} className="py-20 px-6 section-animate">
-      <div className="container max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="mb-2">
-            <span className="chip">Education</span>
+  // Mobile view remains the same as before
+  if (isMobile) {
+    return (
+      <section id="education" ref={sectionRef} className="py-20 px-6 section-animate">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="mb-2">
+              <span className="chip">Education</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Academic Background</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              My educational journey and academic achievements.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Academic Background</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My educational journey and academic achievements.
-          </p>
-        </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-blue-200 dark:bg-blue-900"></div>
-          
-          <div className="stagger-animate space-y-12">
-            {educationData.map((item, index) => (
-              <div key={index} className="stagger-item relative">
-                <div className="flex flex-col md:flex-row md:items-center">
-                  {/* Left side card (visible only on desktop when index is even) */}
-                  {!isMobile && index % 2 === 0 && (
-                    <div className="md:w-1/2 md:pr-8 flex md:justify-end">
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-blue-200 dark:bg-blue-900"></div>
+            
+            <div className="stagger-animate space-y-12">
+              {educationData.map((item, index) => (
+                <div key={index} className="stagger-item relative">
+                  <div className="flex flex-col">
+                    {/* Timeline circle */}
+                    <div className="absolute left-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 z-10"></div>
+                    
+                    {/* Mobile card */}
+                    <div className="w-full ml-12">
                       <div className="glass-card p-6 rounded-xl hover-card w-full">
                         <div className="flex items-center mb-2">
                           <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
@@ -105,35 +108,87 @@ const Education = () => {
                         <p className="text-sm text-muted-foreground mt-1">{item.gpa}</p>
                       </div>
                     </div>
-                  )}
-                  
-                  {/* Timeline circle */}
-                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 z-10"></div>
-                  
-                  {/* Mobile card OR right side card on desktop */}
-                  <div className={cn(
-                    "md:w-1/2 md:pl-8",
-                    isMobile 
-                      ? "w-full ml-12" 
-                      : index % 2 === 1 ? "w-full" : "hidden"
-                  )}>
-                    <div className="glass-card p-6 rounded-xl hover-card w-full">
-                      <div className="flex items-center mb-2">
-                        <GraduationCap className="w-5 h-5 text-blue-600 mr-2" />
-                        <h3 className="font-bold">{item.institution}</h3>
-                      </div>
-                      <div className="text-sm text-muted-foreground mb-1 flex items-center">
-                        <MapPin size={14} className="mr-1" />
-                        <span>{item.location}</span>
-                      </div>
-                      <div className="text-sm text-muted-foreground mb-3 flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        <span>{item.period}</span>
-                      </div>
-                      <p className="font-medium">{item.degree}</p>
-                      <p className="text-sm text-muted-foreground mt-1">{item.gpa}</p>
-                    </div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Desktop/web view redesigned to match the image
+  return (
+    <section id="education" ref={sectionRef} className="py-20 px-6 section-animate">
+      <div className="container max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="mb-2">
+            <span className="chip">Education</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Academic Background</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            My educational journey and academic achievements.
+          </p>
+        </div>
+
+        <div className="relative">
+          {/* Timeline line - centered */}
+          <div className="absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-1 bg-blue-200 dark:bg-blue-900"></div>
+          
+          <div className="stagger-animate space-y-24">
+            {educationData.map((item, index) => (
+              <div key={index} className="stagger-item relative">
+                {/* Timeline circle */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-blue-500 border-2 border-white dark:border-gray-900 z-10"></div>
+                
+                <div className="flex items-start">
+                  {/* Left side card for odd indices (0, 2) */}
+                  {index % 2 === 0 ? (
+                    <>
+                      <div className="w-1/2 pr-12">
+                        <div className="shadow-md bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+                          <div className="flex items-center text-blue-600 mb-2">
+                            <GraduationCap className="w-5 h-5 mr-2" />
+                            <h3 className="font-bold text-gray-800">{item.institution}</h3>
+                          </div>
+                          <div className="text-sm text-gray-600 mb-1 flex items-center">
+                            <MapPin size={14} className="mr-1" />
+                            <span>{item.location}</span>
+                          </div>
+                          <div className="text-sm text-gray-600 mb-3 flex items-center">
+                            <Calendar size={14} className="mr-1" />
+                            <span>{item.period}</span>
+                          </div>
+                          <p className="font-medium text-gray-800">{item.degree}</p>
+                          <p className="text-sm text-gray-600 mt-1">{item.gpa}</p>
+                        </div>
+                      </div>
+                      <div className="w-1/2"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-1/2"></div>
+                      <div className="w-1/2 pl-12">
+                        <div className="shadow-md bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+                          <div className="flex items-center text-blue-600 mb-2">
+                            <GraduationCap className="w-5 h-5 mr-2" />
+                            <h3 className="font-bold text-gray-800">{item.institution}</h3>
+                          </div>
+                          <div className="text-sm text-gray-600 mb-1 flex items-center">
+                            <MapPin size={14} className="mr-1" />
+                            <span>{item.location}</span>
+                          </div>
+                          <div className="text-sm text-gray-600 mb-3 flex items-center">
+                            <Calendar size={14} className="mr-1" />
+                            <span>{item.period}</span>
+                          </div>
+                          <p className="font-medium text-gray-800">{item.degree}</p>
+                          <p className="text-sm text-gray-600 mt-1">{item.gpa}</p>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
