@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -112,7 +113,9 @@ const Education = () => {
                   {/* Mobile card OR right side card on desktop */}
                   <div className={cn(
                     "md:w-1/2 md:pl-8",
-                    isMobile ? "w-full ml-12" : (index % 2 === 1 ? "w-full" : "hidden md:block")
+                    isMobile 
+                      ? "w-full ml-12" 
+                      : index % 2 === 1 ? "w-full" : "hidden"
                   )}>
                     <div className="glass-card p-6 rounded-xl hover-card w-full">
                       <div className="flex items-center mb-2">
