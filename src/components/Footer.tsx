@@ -7,6 +7,13 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ id }) => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer id={id} className="py-12 px-6 bg-gray-50 dark:bg-gray-900">
       <div className="container max-w-5xl mx-auto">
@@ -16,13 +23,13 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
             <p className="text-sm text-muted-foreground mt-1">Crafting Quality Through Automation</p>
           </div>
           
-          <a 
-            href="#" 
+          <button 
+            onClick={scrollToTop}
             className="glass-container p-3 rounded-full inline-flex items-center justify-center hover:shadow-glass-lg transition-all duration-300 transform hover:-translate-y-1"
             aria-label="Back to top"
           >
             <ArrowUp size={18} />
-          </a>
+          </button>
         </div>
         
         <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 text-center text-sm text-muted-foreground">
