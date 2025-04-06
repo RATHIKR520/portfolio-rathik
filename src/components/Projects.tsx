@@ -24,6 +24,14 @@ const projectsData: Project[] = [
     techStack: ["Selenium WebDriver", "Appium", "Maven", "TestNG", "Jenkins", "qTest", "JIRA", "GitHub"]
   },
   {
+    title: "AI Chatbot Test Automation with Selenium & Dialogflow",
+    period: "January 2022 - August 2022",
+    description: "Developed an automated testing framework to validate responses of an AI-powered chatbot (DeepAI) by comparing its answers with a Dialogflow agent. Implemented Behavior-Driven Development (BDD) using Cucumber to define test scenarios in plain English.",
+    techStack: ["Selenium WebDriver", "TestNG", "Cucumber (BDD)", "Dialogflow API", "Google Cloud SDK", "Maven"],
+    github: "https://github.com/RATHIKR520/ai-chatbot",
+    isPersonal: true
+  },
+  {
     title: "Smart Home Products and Automation Biometric Door lock system using IOT",
     period: "November 2019 - May 2020",
     description: "Storing biometric data of employees in the fingerprint module with respective names mapped in the code. Implementation triggered biometric alerts to administrator through SMS whenever the system was accessed.",
