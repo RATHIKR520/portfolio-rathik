@@ -100,7 +100,7 @@ const Hero = () => {
             </div>
           </div>
           <span className="chip bg-blue-50 text-blue-700 border border-blue-200">
-            Automation Test Engineer
+            Automation Test Analyst
           </span>
         </div>
         <h1 className="text-4xl md:text-7xl font-display font-bold mb-6 leading-tight animate-fade-up bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">

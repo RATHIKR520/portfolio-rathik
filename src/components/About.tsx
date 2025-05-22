@@ -51,7 +51,7 @@ const About = () => {
             </div>
             <h2 className="section-heading">Career Summary</h2>
             <p className="text-lg mb-6 text-muted-foreground">
-              I am an experienced Automation Test Engineer with nearing 2.5+ years of industry experience currently working with Accenture Solutions Private Limited.
+              I am an experienced Automation Test Analyst with over 3 years of industry experience currently working with Accenture Solutions Private Limited.
             </p>
             <p className="text-lg mb-6 text-muted-foreground">
               My primary expertise is on automation using Selenium Web driver, Appium and Rest Assured. I have worked in manual testing including functional, adhoc and client acceptance testing.

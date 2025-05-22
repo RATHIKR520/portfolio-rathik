@@ -52,7 +52,7 @@ const Experience = () => {
             </div>
             <div className="stagger-item">
               <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                <h3 className="text-xl font-bold">Automation & Functional Test Engineer</h3>
+                <h3 className="text-xl font-bold">Automation & Functional Test Analyst</h3>
                 <Badge variant="outline" className="md:ml-2 w-fit">Current Role</Badge>
               </div>
               <div className="flex items-center text-muted-foreground mb-4">
@@ -111,7 +111,7 @@ const Experience = () => {
           </div>
           <div className="glass-container rounded-xl p-6 bg-gradient-to-r from-blue-50 to-blue-100">
             <p className="text-lg">
-              Accenture certified Selenium and UFT Test Engineer
+              Accenture certified Selenium and UFT Test Analyst
             </p>
           </div>
         </div>
