@@ -107,7 +107,7 @@ const Hero = () => {
           Crafting Quality Through Automation
         </h1>
         <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          Experienced QA engineer specializing in Selenium WebDriver, Appium and Rest Assured with 2.5+ years of industry expertise.
+          Experienced QA engineer specializing in Selenium WebDriver, Appium and Rest Assured with 3 years of industry expertise.
         </p>
         <div className={`flex flex-col ${isMobile ? 'space-y-4' : 'sm:flex-row items-center justify-center gap-4'} animate-fade-up`} style={{ animationDelay: '0.4s' }}>
           <a 

@@ -39,7 +39,7 @@ const Experience = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">Professional Journey</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Over 2.5 years of industry experience working with cutting-edge testing technologies and methodologies.
+            Over 3 years of industry experience working with cutting-edge testing technologies and methodologies.
           </p>
         </div>
 
